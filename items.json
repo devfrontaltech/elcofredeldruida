@@ -3,63 +3,63 @@
     {
       "id": 12,
       "name": "LÁGRIMA DE FÉNIX: ELIXIR DEL RENACER",
-      "type": "Artefacto",
+      "type": "Consumible",
       "description": "Forjado en los talleres de la antigua Orden del Alba Extinta, este frasco de orfebrería dorada custodia la esencia purificada de un fénix celestial. Las runas grabadas en su cristal de ámbar palpitan con un calor eterno, mientras que las inscripciones Vitalitas y Renaissance recuerdan el juramento de los antiguos héroes que desafiaron a la muerte misma. Se dice que una sola gota de este líquido ardiente, suspendido alrededor de una pluma inmortal, es capaz de restañar las heridas más profundas del alma y restaurar el fulgor de la existencia a aquellos cuyo vínculo con este mundo ya se ha desvanecido en el campo de batalla.",
       "image": "images/12.jpg"
     },
     {
       "id": 11,
       "name": "SORTIJA DE LA RAÍZ HELADA",
-      "type": "Artefacto",
+      "type": "Amuleto",
       "description": "Forjado a partir de las raíces plateadas de un árbol ancestral que absorbió el maná de un cometa caído, este anillo contiene en su gema central la esencia del invierno eterno. Las runas grabadas en su banda interior palpitan con un frío sutil, otorgando a su portador la claridad mental de la escarcha pura y el poder de canalizar ventiscas antiguas que congelan el tiempo y la voluntad de los enemigos.",
       "image": "images/11.jpg"
     },
     {
       "id": 10,
       "name": "BOLSA DE BRUMA ÁUREA",
-      "type": "Artefacto",
+      "type": "Reliquia",
       "description": "Este misterioso monedero de cuero curtido no resguarda oro ni gemas, sino la esencia volátil de los suspiros perdidos. Se dice que fue cosido por un sastre ciego que utilizaba hilos impregnados en agua bendita para contener la magia en su interior. Al entreabrir su broche de cuarzo rosado, un humo etéreo y perfumado se eleva perezosamente, capaz de nublar los sentidos de los enemigos cercanos o de revelar caminos ocultos que solo los espíritus pueden ver. Aquellos que lo portan aseguran escuchar un leve tintineo celestial cada vez que el humo danza en el aire, como si las propias monedas del destino estuvieran chocando entre sí.",
       "image": "images/10.jpg"
     },
     {
       "id": 9,
       "name": "BÁCULO DE LA ARBOLEDA ÁUREA",
-      "type": "Artefacto",
+      "type": "Arma",
       "description": "Forjado a partir del núcleo de un antiguo árbol sagrado y coronado con esmeraldas cargadas de energía telúrica, este cetro actúa como un canalizador puro de la magia de la naturaleza. Los mitos dicen que fue creado por los primeros druidas para restaurar los bosques marchitos por la guerra, y que el brillo verde de sus cristales pulsa al mismo ritmo que el corazón de la propia tierra.",
       "image": "images/9.jpg"
     },
     {
       "id": 8,
       "name": "ROMPEOCASO, LA RELIQUIA DE LA SANGRE RÚNICA",
-      "type": "Artefacto",
+      "type": "Arma",
       "description": "Forjada por los antiguos reyes rúnicos para combatir a las hordas del vacío, esta hoja de acero oscuro canaliza energía elemental a través de los glifos de su lomo. El rubí de su guarda actúa como una gema de contención que absorbe la esencia vital de los enemigos caídos, permitiendo al portador desatar ráfagas de poder devastadoras. Cuenta la leyenda que heredar este filo implica aceptar un juramento inquebrantable, sellado con la misma sangre que hoy tiñe sus antiguos planos de diseño.",
       "image": "images/8.jpg"
     },
     {
       "id": 7,
       "name": "EL GRIMORIO DE LA GEMA CARMESÍ",
-      "type": "Artefacto",
+      "type": "Grimorio",
       "description": "Se dice que la gema incrustada en su cubierta es un fragmento cristalizado de un antiguo pacto olvidado. Cada palabra leída de sus páginas concede conocimiento prohibido, pero borra para siempre un recuerdo del lector. Muchos lo buscaron por su poder. Ninguno regresó siendo el mismo.",
       "image": "images/7.jpg"
     },
     {
       "id": 6,
       "name": "LA DAGA DEL WYRM DE ESCARCHA",
-      "type": "Artefacto",
+      "type": "Arma",
       "description": "Arrancado de las fauces de una mítica bestia de las cumbres heladas, este colmillo conserva la temperatura del cero absoluto y late con un núcleo de zafiro resonante. Al ser empuñado en combate, el arma no solo corta la carne, sino que congela instantáneamente la sangre de la víctima, ralentizando sus movimientos y transmitiendo un frío de muerte que debilita cualquier resistencia mágica.",
       "image": "images/6.jpg"
     },
     {
       "id": 5,
       "name": "CETRO DE LA VIRTUD ARGÉNTEA",
-      "type": "Artefacto",
+      "type": "Arma",
       "description": "Tallado en madera de un árbol milenario y coronado por una deidad de plata, este cetro resguarda el último fragmento de un fénix celestial que se cristalizó al morir. La gema azul que sostiene la criatura pulsa con una energía fría y purificadora, capaz de invocar ráfagas de fuego fatuo y restaurar la vitalidad de los aliados en el campo de batalla.",
       "image": "images/5.jpg"
     },
     {
       "id": 4,
       "name": "ARMADURA DEL VELO SOMBRÍO",
-      "type": "Artefacto",
+      "type": "Armadura",
       "description": "Una pieza forjada en los albores de la era oscura, moldeada con metal orgánico que parece vivo y alimentada por el alma de una deidad caída. Su gema central purpúrea actúa como un faro abisal, canalizando una niebla etérea que nubla los sentidos de los enemigos y otorga a su portador la capacidad de fundirse con las sombras del campo de batalla. Quienes la visten aseguran que el metal se adhiere a la piel como una enredadera maldita, exigiendo tributo de sangre a cambio de una protección inquebrantable.",
       "image": "images/4.jpg"
     },
@@ -73,14 +73,14 @@
     {
       "id": 2,
       "name": "EL CÁLIZ DE LA LAMENTACIÓN DEL VACÍO",
-      "type": "Artefacto",
+      "type": "Reliquia",
       "description": "Forjado por un culto ancestral con huesos de dragón y metal retorcido, este cáliz canaliza la oscuridad pura. Las Amatistas del Alma que lo decoran contienen el llanto de los condenados, el cual se manifiesta en un denso humo violáceo que emana de la sangre espectral que hierve en su interior. Quien se atreva a beber de él obtendrá un poder arcano devastador, pero arriesgará su cordura al escuchar los gritos incesantes de las almas atrapadas en el Vacío.",
       "image": "images/2.jpg"
     },
     {
       "id": 1,
       "name": "LINTERNA DE VERDAVELO",
-      "type": "Artefacto",
+      "type": "Reliquia",
       "description": "Una reliquia creada por los druidas del Bosque Eterno para capturar almas perdidas entre la niebla. La llama verde en su interior nunca se apaga, porque se alimenta de recuerdos olvidados. Quien la porta puede encontrar caminos ocultos, ruinas antiguas y secretos enterrados… pero cada noche pierde un fragmento de su propia memoria. Muchos la buscaron por poder. Ninguno recordó por qué.",
       "image": "images/1.jpg"
     }
