@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "id": 13,
+      "name": "PERGAMINO DEL RENACER ESMERALDA",
+      "type": "Pergamino",
+      "description": "Forjado en las profundidades del Bosque Primigenio y sellado con las inscripciones sagradas de Vitalitas y Renaissance, este antiguo manuscrito contiene la esencia de un fénix de la naturaleza. Los eruditos afirman que los intrincados círculos rúnicos canalizan una magia regenerativa tan pura que es capaz de restaurar tierras marchitas y curar heridas mortales en un parpadeo. Al desenrollarlo, el fénix dorado y verde grabado en su centro late con una calidez viva, esperando el momento exacto en que un alma digna invoque su poder para desafiar a la mismísima muerte y hacer florecer la vida de entre las cenizas.",
+      "image": "images/13.jpg"
+    },
+    {
       "id": 12,
       "name": "LÁGRIMA DE FÉNIX: ELIXIR DEL RENACER",
       "type": "Consumible",
