@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Vitalitas Renaissance",
+      "type": "Amuleto",
+      "description": "Un amuleto forjado en las brasas del primer fénix. Su núcleo arde con energía vital eterna, grabado con runas antiguas que susurran el secreto de la renovación. Quien lo porta jamás conocerá la derrota definitiva.",
+      "image": "images/anillo.png"
+    },
+    {
+      "id": 2,
+      "name": "Bolsa del Velo Rosa",
+      "type": "Reliquia",
+      "description": "Una bolsa de cuero repujado que exhala una niebla rosada de poder arcano. Su interior contiene más espacio del que aparenta, y de ella emana un aroma dulce que calma la mente y agudiza los sentidos mágicos.",
+      "image": "images/anillo.png"
+    },
+    {
+      "id": 3,
+      "name": "Bastón del Bosque Eterno",
+      "type": "Arma Mágica",
+      "description": "Un bastón tallado de la madera de un árbol milenario, entretejido con cristales de esmeralda viva. Las runas que lo adornan canalizan el poder primigenio de la naturaleza, convocando tormentas de hojas y raíces que todo lo devoran.",
+      "image": "images/anillo.png"
+    },
+    {
+      "id": 4,
+      "name": "Bastón del Bosque Eterno",
+      "type": "Arma Mágica",
+      "description": "Un bastón tallado de la madera de un árbol milenario, entretejido con cristales de esmeralda viva. Las runas que lo adornan canalizan el poder primigenio de la naturaleza, convocando tormentas de hojas y raíces que todo lo devoran.",
+      "image": "images/anillo.png"
+    },
+    {
+      "id": 5,
+      "name": "Bastón del Bosque Eterno",
+      "type": "Arma Mágica",
+      "description": "Un bastón tallado de la madera de un árbol milenario, entretejido con cristales de esmeralda viva. Las runas que lo adornan canalizan el poder primigenio de la naturaleza, convocando tormentas de hojas y raíces que todo lo devoran.",
+      "image": "images/anillo.png"
+    },
+    {
+      "id": 6,
+      "name": "Bastón del Bosque Eterno",
+      "type": "Arma Mágica",
+      "description": "Un bastón tallado de la madera de un árbol milenario, entretejido con cristales de esmeralda viva. Las runas que lo adornan canalizan el poder primigenio de la naturaleza, convocando tormentas de hojas y raíces que todo lo devoran.",
+      "image": "images/anillo.png"
+    },
+    {
+      "id": 7,
+      "name": "Bastón del Bosque Eterno",
+      "type": "Escudo",
+      "description": "Un bastón tallado de la madera de un árbol milenario, entretejido con cristales de esmeralda viva. Las runas que lo adornan canalizan el poder primigenio de la naturaleza, convocando tormentas de hojas y raíces que todo lo devoran.",
+      "image": "images/anillo.png"
+    }
+  ]
+}

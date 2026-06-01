@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Cofre del Druida — Items RPG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="images/profile.png" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold-light: #f5d78e;
+      --gold-mid: #c9a227;
+      --gold-dark: #7a5c00;
+      --gold-glow: #e8b84b;
+      --parchment: #f4ead5;
+      --parchment-dark: #e8d9b8;
+      --ink: #2a1f0e;
+      --ink-light: #4a3520;
+      --ink-mid: #6b4f2a;
+      --border-ornate: #c9a227;
+
+    }
+
+    body {
+      background-color: #1a1108;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(120, 80, 10, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(80, 40, 5, 0.2) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='1' cy='1' r='0.5' fill='rgba(200,160,40,0.07)'/%3E%3Ccircle cx='31' cy='31' r='0.5' fill='rgba(200,160,40,0.07)'/%3E%3C/svg%3E");
+      font-family: 'Crimson Text', Georgia, serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 3.5rem 1.5rem 2rem;
+      position: relative;
+    }
+
+    .header-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .header-ornament::before,
+    .header-ornament::after {
+      content: '';
+      flex: 1;
+      max-width: 180px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+    }
+
+    .header-ornament svg {
+      fill: var(--gold-mid);
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .site-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      text-shadow: 0 0 40px rgba(201, 162, 39, 0.4), 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .site-subtitle {
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(245, 215, 142, 0.65);
+      margin-top: 0.5rem;
+      letter-spacing: 0.06em;
+    }
+
+    .header-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .header-divider span {
+      height: 1px;
+      width: clamp(60px, 15vw, 140px);
+      background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold-mid), var(--gold-dark), transparent);
+    }
+
+    .header-divider .diamond {
+      width: 7px;
+      height: 7px;
+      background: var(--gold-mid);
+      transform: rotate(45deg);
+    }
+
+    /* ── FILTERS ── */
+    .filters-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.5rem 2rem;
+    }
+
+    .filter-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      background: transparent;
+      color: rgba(245, 215, 142, 0.55);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(201, 162, 39, 0.12);
+      color: var(--gold-light);
+      border-color: var(--gold-mid);
+    }
+
+    /* ── GRID ── */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 0 clamp(1rem, 4vw, 3rem) 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── CARD ── */
+    .item-card {
+      background: var(--parchment);
+      border-radius: 4px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      overflow: hidden;
+    }
+
+    .item-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Corner ornaments */
+    .item-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(201, 162, 39, 0.5);
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .corner svg { fill: var(--gold-mid); width: 100%; height: 100%; }
+    .corner-tl { top: 4px; left: 4px; }
+    .corner-tr { top: 4px; right: 4px; transform: scaleX(-1); }
+    .corner-bl { bottom: 4px; left: 4px; transform: scaleY(-1); }
+    .corner-br { bottom: 4px; right: 4px; transform: scale(-1); }
+
+    /* Image container */
+    .card-image-wrap {
+      width: 100%;
+      padding-top: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #1a1108;
+    }
+
+    .card-image-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(to top, var(--parchment), transparent);
+      z-index: 1;
+    }
+
+    .card-image-wrap img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .item-card:hover .card-image-wrap img {
+      transform: scale(1.04);
+    }
+
+
+
+    .card-type-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      background: rgba(20, 12, 2, 0.8);
+      color: rgba(245, 215, 142, 0.8);
+      border: 1px solid rgba(201, 162, 39, 0.4);
+      z-index: 3;
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 1rem 1.2rem 1.3rem;
+      background: var(--parchment);
+      position: relative;
+    }
+
+    .card-body::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+      margin-bottom: 0.9rem;
+    }
+
+    .card-name {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.55rem;
+    }
+
+    .card-description {
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      font-size: clamp(0.88rem, 1.8vw, 0.97rem);
+      color: var(--ink-mid);
+      line-height: 1.55;
+      margin-bottom: 0.85rem;
+    }
+
+
+
+    /* image placeholder */
+    .img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #1a1108;
+    }
+
+    .img-placeholder svg { fill: rgba(201, 162, 39, 0.25); width: 52px; height: 52px; }
+    .img-placeholder span { font-family: 'Cinzel', serif; font-size: 0.65rem; color: rgba(201, 162, 39, 0.35); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 6, 2, 0.88);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--parchment);
+      border-radius: 4px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(12px);
+      transition: transform 0.25s ease;
+      border: 1px solid var(--gold-mid);
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px; right: 14px;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--gold-dark);
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 5;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+
+    .modal-close:hover { color: var(--gold-mid); }
+
+    .modal-image-wrap {
+      width: 100%;
+      padding-top: 60%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-image-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .modal-image-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(to top, var(--parchment), transparent);
+      z-index: 1;
+    }
+
+    .modal-body {
+      padding: 0.5rem 2rem 2rem;
+    }
+
+
+
+    .modal-type-tag {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 0.5rem;
+    }
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .modal-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .modal-divider span { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold-mid), transparent); }
+    .modal-divider .dmd { width: 6px; height: 6px; background: var(--gold-mid); transform: rotate(45deg); flex-shrink: 0; }
+
+    .modal-description {
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--ink-mid);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+
+
+    /* ── EMPTY / ERROR / LOADING ── */
+    .status-msg {
+      text-align: center;
+      padding: 5rem 2rem;
+      grid-column: 1 / -1;
+    }
+
+    .status-msg p {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: rgba(245, 215, 142, 0.4);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+      border-top: 1px solid rgba(201, 162, 39, 0.15);
+      margin-top: 1rem;
+    }
+
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245, 215, 142, 0.3);
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #1a1108; }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 500px) {
+      .items-grid { grid-template-columns: 1fr; gap: 1.5rem; padding: 0 1rem 3rem; }
+      .modal-body { padding: 0.5rem 1.2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-ornament">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+  </div>
+  <h1 class="site-title">El Cofre del Druida</h1>
+  <p class="site-subtitle">Reliquias &amp; Artefactos de Poder</p>
+  <div class="header-divider">
+    <span></span><div class="diamond"></div><span></span>
+  </div>
+</header>
+
+<div class="filters-bar" id="filters-bar">
+  <button class="filter-btn active" data-filter="all">Todos</button>
+</div>
+
+<main class="items-grid" id="items-grid">
+  <div class="status-msg"><p>Consultando el grimorio&hellip;</p></div>
+</main>
+
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-item-name">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">&#x2715;</button>
+    <div class="modal-image-wrap" id="modal-img-wrap"></div>
+    <div class="modal-body">
+      <span class="modal-type-tag" id="modal-type"></span>
+      <h2 class="modal-name" id="modal-item-name"></h2>
+      <div class="modal-divider"><span></span><div class="dmd"></div><span></span></div>
+      <p class="modal-description" id="modal-description"></p>
+    </div>
+  </div>
+</div>
+
+<footer><p>El Cofre del Druida &mdash; Todos los artefactos son de mi autoría</p></footer>
+
+<script>
+  const CORNER_SVG = `<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L8 0 L8 2 L2 2 L2 8 L0 8 Z M4 4 L5 4 L5 5 L4 5 Z"/></svg>`;
+
+  function buildCorners() {
+    return `
+      <div class="corner corner-tl">${CORNER_SVG}</div>
+      <div class="corner corner-tr">${CORNER_SVG}</div>
+      <div class="corner corner-bl">${CORNER_SVG}</div>
+      <div class="corner corner-br">${CORNER_SVG}</div>`;
+  }
+
+  function safeStat(s) { return String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c])); }
+
+  function buildCard(item) {
+    const card = document.createElement('article');
+    card.className = 'item-card';
+    card.setAttribute('data-type', item.type || '');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', item.name);
+
+    card.innerHTML = `
+      ${buildCorners()}
+      <div class="card-image-wrap">
+        <div class="img-placeholder" id="ph-${item.id}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          <span>Sin imagen</span>
+        </div>
+      </div>
+      ${item.type ? `<span class="card-type-tag">${item.type}</span>` : ''}
+      <div class="card-body">
+        <h3 class="card-name">${item.name}</h3>
+        <p class="card-description">${item.description}</p>
+      </div>`;
+
+    if (item.image) {
+      const wrap = card.querySelector('.card-image-wrap');
+      const ph = card.querySelector('.img-placeholder');
+      const img = document.createElement('img');
+      img.alt = item.name;
+      img.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;';
+      img.onload = () => { if (ph) ph.remove(); };
+      img.onerror = () => {};
+      wrap.appendChild(img);
+      img.src = item.image;
+    }
+
+    card.addEventListener('click', () => openModal(item));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(item); });
+    return card;
+  }
+
+  function openModal(item) {
+    const overlay = document.getElementById('modal-overlay');
+    document.getElementById('modal-item-name').textContent = item.name;
+    document.getElementById('modal-description').textContent = item.description;
+
+    document.getElementById('modal-type').textContent = item.type || '';
+
+    const imgWrap = document.getElementById('modal-img-wrap');
+    imgWrap.innerHTML = '';
+    if (item.image) {
+      const img = document.createElement('img');
+      img.alt = item.name;
+      img.src = item.image;
+      img.onerror = () => { imgWrap.style.display = 'none'; };
+      imgWrap.style.display = '';
+      imgWrap.appendChild(img);
+    } else {
+      imgWrap.style.display = 'none';
+    }
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-overlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function buildFilters(items) {
+    const bar = document.getElementById('filters-bar');
+    const types = [...new Set(items.map(i => i.type).filter(Boolean))];
+    types.forEach(type => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.filter = type;
+      btn.textContent = type;
+      btn.addEventListener('click', () => filterItems(type));
+      bar.appendChild(btn);
+    });
+    bar.querySelector('[data-filter="all"]').addEventListener('click', () => filterItems('all'));
+  }
+
+  function filterItems(filter) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+    document.querySelectorAll('.item-card').forEach(card => {
+      const match = filter === 'all' || card.dataset.type === filter;
+      card.style.display = match ? '' : 'none';
+    });
+  }
+
+  async function loadItems() {
+    const grid = document.getElementById('items-grid');
+    try {
+      const res = await fetch('items.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const items = data.items || [];
+
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = '<div class="status-msg"><p>El grimorio está vacío…</p></div>';
+        return;
+      }
+
+      buildFilters(items);
+      items.forEach(item => grid.appendChild(buildCard(item)));
+
+    } catch (err) {
+      grid.innerHTML = `<div class="status-msg"><p>Error al cargar el grimorio: ${err.message}</p></div>`;
+      console.error(err);
+    }
+  }
+
+  loadItems();
+</script>
+</body>
+</html>
